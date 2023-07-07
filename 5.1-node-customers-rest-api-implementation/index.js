@@ -1,7 +1,9 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 // const express = require('express');
 
 const app = express();
+app.use(bodyParser.json())
 
 const port = 3000;
 
@@ -23,6 +25,18 @@ app.get("/api/customers/:id", (req, res) => {
     const customer = customers.filter(customer => customer.id === customerId);
     if(customer.length > 0) res.json(customer);
     res.status(404).end();
+})
+
+//POST method: Add new customer
+app.post("/api/customers", (req, res) => {
+    // Extract customer from the request body and generate id
+    const id = Date.now().toString();
+    const newCustomer = {id, ...req.body};
+
+    // Add new customer at the end of the customers array
+    customers = [...customers, newCustomer];
+
+    res.json(newCustomer); // it used to send a JSON response back to the client
 })
 
 app.listen(port, () => {
