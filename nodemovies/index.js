@@ -40,12 +40,26 @@ app.post("/api/movies", (req, res) => {
 })
 
 //DELETE method: delete movie by id
-app.delete("/api/movies/:d", (req, res) => {
+app.delete("/api/movies/:id", (req, res) => {
     const movieId = req.params.id;
 
     movies = movies.filter(movie => movie.id !== movieId);
 
     res.status(204).end();
+})
+
+//PUT method:edit movie by id
+app.put("/api/movies/:id", (req, res) => {
+    const movieId = req.params.id;
+    const updatedMovie = {'id': movieId, ...req.body};
+
+    //Get the index of upated movie
+    const index = movies.findIndex(movie => movie.id == movieId);
+
+    //Replace updated movie in the array
+    movies.splice(index, 1, updatedMovie);
+
+    res.json(updatedMovie);
 })
 
 app.listen(port, () => {
