@@ -16,6 +16,15 @@ app.get("/api/movies", (req, res) => {
     res.json(movies);
 })
 
+//Get movie by id
+app.get("/api/movies/:id", (req, res) => {
+    const movieId =req.params.id;
+
+    const movie = movies.filter(movie => movie.id === movieId);
+    if(movie.length > 0) res.json(movie);
+    res.status(404).end();
+})
+
 app.listen(port, () => {
    console.log(`Server is running on port ${port}.`);
 });
