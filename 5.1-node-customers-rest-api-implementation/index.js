@@ -48,6 +48,21 @@ app.delete("/api/customers/:id", (req, res) => {
     res.status(204).end();
 })
 
+//PUT method:edit customer by id
+app.put("/api/customers/:id", (req, res) => {
+    const customerId = req.params.id;
+    const updatedCustomer = {'id': customerId, ...req.body};
+
+    //Get the index of updated customer
+    const index = customers.findIndex(customer => customer.id == customerId);
+
+    //Replace updated customer in the array
+    customers.splice(index, 1, updatedCustomer);
+
+    res.json(updatedCustomer);
+})
+
+
 app.listen(port, () => {
    console.log(`Server is running on port ${port}.`);
 });
