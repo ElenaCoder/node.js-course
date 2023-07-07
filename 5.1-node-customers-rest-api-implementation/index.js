@@ -39,6 +39,15 @@ app.post("/api/customers", (req, res) => {
     res.json(newCustomer); // it used to send a JSON response back to the client
 })
 
+//DELETE method: delete customer by id
+app.delete("/api/customers/:id", (req, res) => {
+    const customerId = req.params.id;
+
+    customers = customers.filter(customer => customer.id !== customerId);
+
+    res.status(204).end();
+})
+
 app.listen(port, () => {
    console.log(`Server is running on port ${port}.`);
 });
