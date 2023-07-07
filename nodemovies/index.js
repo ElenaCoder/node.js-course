@@ -11,6 +11,11 @@ let movies = [
     {id: '1588323412643', title: 'Harry Potter and the Sorcerers Stone', year: 2001, director: 'Chris Columbus'}
   ];
 
+//Fetch all movies
+app.get("/api/movies", (req, res) => {
+    res.json(movies);
+})
+
 app.listen(port, () => {
    console.log(`Server is running on port ${port}.`);
 });
