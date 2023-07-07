@@ -39,6 +39,15 @@ app.post("/api/movies", (req, res) => {
     res.json(newMovie); // it used to send a JSON response back to the client
 })
 
+//DELETE method: delete movie by id
+app.delete("/api/movies/:d", (req, res) => {
+    const movieId = req.params.id;
+
+    movies = movies.filter(movie => movie.id !== movieId);
+
+    res.status(204).end();
+})
+
 app.listen(port, () => {
    console.log(`Server is running on port ${port}.`);
 });
