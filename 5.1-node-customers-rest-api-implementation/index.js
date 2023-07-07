@@ -16,6 +16,14 @@ app.get("/api/customers", (req, res) => {
     res.json(customers);
 })
 
+//GET method:Get customer by id
+app.get("/api/customers/:id", (req, res) => {
+    const customerId = req.params.id;
+
+    const customer = customers.filter(customer => customer.id === customerId);
+    if(customer.length > 0) res.json(customer);
+    res.status(404).end();
+})
 
 app.listen(port, () => {
    console.log(`Server is running on port ${port}.`);
