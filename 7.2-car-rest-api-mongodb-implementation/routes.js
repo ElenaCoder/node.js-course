@@ -39,4 +39,17 @@ router.delete('/cars', async (req, res) => {
     }
 });
 
+// Update car by id
+router.put('/cars/:id', async (req, res) => {
+    try {
+        const result = await Car.findOneAndUpdate(
+            { _id: req.params.id },
+            req.body,
+            { new: true },
+        );
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;
