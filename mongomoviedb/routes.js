@@ -12,5 +12,20 @@ router.get("/movies", async (req, res) => {
   }
 })
 
+// Add movie
+router.post("/movies", async (req, res) => {
+    const movie = new Movie({
+      title: req.body.title,
+      director: req.body.director,
+      year: req.body.year
+    });
+
+    try {
+      const newMovie = await movie.save();
+      res.status(201).json({ newMovie });
+    } catch(err) {
+      return res.status(500).json({ message: err.message });
+    }
+  })
 
 module.exports = router;
