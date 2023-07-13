@@ -29,4 +29,14 @@ router.post('/cars', async (req, res) => {
     }
 });
 
+// Delete car by brand
+router.delete('/cars', async (req, res) => {
+    try {
+        const result = await Car.deleteMany({ brand: req.body.brand });
+        res.status(200).json(result);
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;
