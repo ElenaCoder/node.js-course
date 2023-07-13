@@ -1,0 +1,62 @@
+[
+    {
+      "brand": "Toyota",
+      "model": "Camry",
+      "color": "Silver",
+      "year": 2022
+    },
+    {
+      "brand": "Honda",
+      "model": "Civic",
+      "color": "Red",
+      "year": 2021
+    },
+    {
+      "brand": "Ford",
+      "model": "Mustang",
+      "color": "Blue",
+      "year": 2020
+    },
+    {
+      "brand": "Chevrolet",
+      "model": "Cruze",
+      "color": "White",
+      "year": 2019
+    },
+    {
+      "brand": "BMW",
+      "model": "X5",
+      "color": "Black",
+      "year": 2023
+    },
+    {
+      "brand": "Mercedes-Benz",
+      "model": "E-Class",
+      "color": "Silver",
+      "year": 2022
+    },
+    {
+      "brand": "Audi",
+      "model": "A4",
+      "color": "Gray",
+      "year": 2021
+    },
+    {
+      "brand": "Nissan",
+      "model": "Altima",
+      "color": "Black",
+      "year": 2020
+    },
+    {
+      "brand": "Jeep",
+      "model": "Wrangler",
+      "color": "Green",
+      "year": 2023
+    },
+    {
+      "brand": "Hyundai",
+      "model": "Elantra",
+      "color": "Silver",
+      "year": 2022
+    }
+  ]
