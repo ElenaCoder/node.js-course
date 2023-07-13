@@ -28,4 +28,14 @@ router.post("/movies", async (req, res) => {
     }
   })
 
+// Delete movie by title
+router.delete("/movies", async (req, res) => {
+    try {
+        const result = await Movie.deleteMany({ title: req.body.title });
+        res.status(200).json(result);
+      } catch (err) {
+        return res.status(500).json({ message: err.message });
+      }
+})
+
 module.exports = router;
