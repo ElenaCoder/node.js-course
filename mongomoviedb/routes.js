@@ -38,4 +38,13 @@ router.delete("/movies", async (req, res) => {
       }
 })
 
+// Update movie by id
+router.put("/movies/:id", async (req, res) => {
+    try {
+        const result = await Movie.findOneAndUpdate({ _id: req.params.id }, req.body, {new: true});
+    } catch(err) {
+        return res.status(500).json({ message: err.message });
+    }
+  })
+
 module.exports = router;
