@@ -12,6 +12,18 @@ const testMovie = {
     year: 1972,
 };
 
+describe('/GET movies', () => {
+    it('Fetch all movies', (done) => {
+        chai.request(app)
+            .get('/api/movies')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('array');
+                res.body.length.should.be.eql(1);
+                done();
+            });
+    });
+});
 
 describe('/POST movies', () => {
     beforeEach((done) => {
