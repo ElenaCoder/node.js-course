@@ -30,7 +30,10 @@ REST API has the following endpoints and actions:
 - Node.js
 - Express.js
 - PostgreSQL
-- Postman
+- Postman¨
+- Mocha
+- Chai
+- Chai-HTTP
 
 ## How to Use
 
@@ -63,28 +66,25 @@ To set up the PostgreSQL database for the Movie Database REST API, follow these 
 
 3. Connect to the "movie" database (`\c movie` command) and create a table called "movies" into the "movie" database using the following SQL statement:
 
-```
-
-CREATE TABLE movies (
-  id serial PRIMARY KEY,
-  title VARCHAR (200) NOT NULL,
-  director VARCHAR (200) NOT NULL,
-  year INTEGER NOT NULL
-);
-
-```
+      ```
+         CREATE TABLE movies (
+         id serial PRIMARY KEY,
+         title VARCHAR (200) NOT NULL,
+         director VARCHAR (200) NOT NULL,
+         year INTEGER NOT NULL
+         );
+      ```
 4. Populate the "movies" table using the SQL statements below:
 
-```
-INSERT INTO movies (title, year, director) VALUES ('Star Wars: Episode IX - The Rise of Skywalker', 2019,'J.J. Abrams');
-INSERT INTO movies (title, year, director) VALUES ('The Irishman', 2019, 'Martin Scorsese');
-INSERT INTO movies (title, year, director) VALUES ('Harry Potter and the Sorcerers Stone', 2001, 'Chris Columbus');
-
-```
+      ```
+         INSERT INTO movies (title, year, director) VALUES ('Star Wars: Episode IX - The Rise of Skywalker', 2019,'J.J. Abrams');
+         INSERT INTO movies (title, year, director) VALUES ('The Irishman', 2019, 'Martin Scorsese');
+         INSERT INTO movies (title, year, director) VALUES ('Harry Potter and the Sorcerers Stone', 2001, 'Chris Columbus');
+      ```
 
 5. Check that movies are added to the "movies" table:
 
-`SELECT * FROM movies;`
+   `SELECT * FROM movies;`
 
 
 ## Testing
@@ -100,11 +100,11 @@ GET http://localhost:3000/api/movies/{id}
 POST http://localhost:3000/api/movies
 Content-Type: application/json
 
-{
-  "title": "Casino Royale",
-  "year": 2006,
-  "director": "Martin Campbell"
-}
+   {
+   "title": "Casino Royale",
+   "year": 2006,
+   "director": "Martin Campbell"
+   }
 
 - Delete movie by ID:
 DELETE http://localhost:3000/api/movies/{id}
@@ -113,12 +113,21 @@ DELETE http://localhost:3000/api/movies/{id}
 PUT http://localhost:3000/api/movies/{id}
 Content-Type: application/json
 
- {
-  "title": "The Irishman",
-  "year": 2015,
-  "director": "Martin Scorsese"
-}
+   {
+   "title": "The Irishman",
+   "year": 2015,
+   "director": "Martin Scorsese"
+   }
 
+## Automated integration testing
+To test the API endpoints, the project utilizes the **Mocha** testing framework along with the **Chai** assertion library and **Chai-HTTP** plugin.
+The tests are written in JavaScript and can be found in the test directory.
+
+To run the tests, use the following command:
+
+`npm test`
+
+Make sure the server is running before executing the tests.
 
 ## License
 
