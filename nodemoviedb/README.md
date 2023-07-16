@@ -3,7 +3,8 @@
 
 ## Project Description
 
-The goal of this project was to create a RESTful API that allows users to interact with a **movie** database.
+The goal of this project was to create a secure RESTful API that allows users to interact with a **movie** database.
+The API endpoints are protected using authentication with JSON Web Tokens (JWT) and password hashing with bcrypt.
 The root endpoint of the REST API is http://localhost:3000/api/movies.
 
 REST API has the following endpoints and actions:
@@ -30,10 +31,12 @@ REST API has the following endpoints and actions:
 - Node.js
 - Express.js
 - PostgreSQL
-- Postman¨
+- Postman
 - Mocha
 - Chai
 - Chai-HTTP
+- jsonwebtoken
+- bcrypt
 
 ## How to Use
 
@@ -52,6 +55,36 @@ REST API has the following endpoints and actions:
    `npm start`
 
 6. Access the API: The API will be available at `http://localhost:3000/api/movies`. You can use an HTTP client (e.g., cURL, Postman) to interact with the endpoints mentioned in the "Features" section.
+
+7. Authentication: To access protected endpoints, include a valid JWT token in the Authorization header of your requests. You can obtain a token by making a POST request to the `/api/login` endpoint with valid user credentials. The response will include a token that can be used for subsequent authenticated requests.
+   **Obtaining the JWT Token:**
+   To obtain a JWT token, we will use Postman. Follow these steps:
+
+   - Open Postman and create a new request.
+   - Set the HTTP method to POST.
+   - Enter the following URL: http://localhost:3000/api/login.
+   - Select the "Body" tab.
+   - Choose the "raw" option.
+   - Set the body format to JSON (application/json).
+   - In the request body, enter the following JSON:
+         ```
+         {
+            "email":"john@john.com",
+            "password":"john007"
+         }
+         ```
+   - Click the "Send" button to make the request.
+   - The response from the /api/login endpoint will include a JWT token. Copy this token from the response body.
+
+   **Include JWT Token:**
+    To access protected endpoints, include the JWT token in the Authorization header of your requests.
+    Here's an example using Postman:
+      - Create a new request in Postman for a protected endpoint (e.g., GET /api/movies).
+      - Set the HTTP method to the appropriate method (e.g., GET).
+      - Set the request URL to http://localhost:3000/api/movies.
+      - In the request headers, add a new header with the key Authorization and the value Bearer <your-jwt-token>.
+      - Replace <your-jwt-token> with the actual JWT token.
+      - Click the "Send" button to make the request. You should receive a response with the desired data from the protected endpoint.
 
 ## Database Setup
 
