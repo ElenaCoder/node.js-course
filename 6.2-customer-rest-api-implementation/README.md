@@ -113,7 +113,7 @@ To set up the PostgreSQL database for the **customer** Database REST API, follow
   5. Check that customers are added to the customers table
       `SELECT * FROM customers;`
 
-**user** table:
+**users** table:
   1. Connect to the customer database (`\c customer` command) and create a table called **users** into the customer database using the following SQL statement.
       ```
         CREATE TABLE users (
