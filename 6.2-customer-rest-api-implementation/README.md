@@ -3,7 +3,8 @@
 
 ## Project Description
 
-The goal of this project was to create a RESTful API that allows users to interact with a **customer** database.
+The goal of this project was to create a secure RESTful API that allows users to interact with a **customer** database.
+The API endpoints are protected using authentication with JSON Web Tokens (JWT) and password hashing with bcrypt.
 The root endpoint of the REST API is http://localhost:3000/api/customers.
 
 REST API has following endpoints and actions:
@@ -35,12 +36,14 @@ REST API has following endpoints and actions:
 - Mocha
 - Chai
 - Chai-HTTP
+- jsonwebtoken
+- bcrypt
 
 ## How to Use
 
 1. Install Dependencies: Make sure you have Node.js and npm (Node Package Manager) installed on your machine.
 
-2. [Database Setup](#database-setup): Set up a PostgreSQL database server and create a database called "customer". Run the provided SQL statements to create the necessary table and populate it with sample data.
+2. [Database Setup](#database-setup): Set up a PostgreSQL database server and create a database called "customer". Run the provided SQL statements to create the necessary tables and populate them with sample data.
 
 3. Configuration: Update the database connection details in the `dbconfig.js` file to match your PostgreSQL database credentials.
 
@@ -51,22 +54,48 @@ REST API has following endpoints and actions:
 5. Start the Server: Run the following command to start the server:
   `npm start`
 
+6. Authentication: To access protected endpoints, include a valid JWT token in the Authorization header of your requests. You can obtain a token by making a POST request to the `/api/login` endpoint with valid user credentials. The response will include a token that can be used for subsequent authenticated requests.
+   **Obtaining the JWT Token:**
+   To obtain a JWT token, we will use Postman. Follow these steps:
+   - Open Postman and create a new request.
+   - Set the HTTP method to POST.
+   - Enter the following URL: http://localhost:3000/login.
+   - Select the "Body" tab.
+   - Choose the "raw" option.
+   - Set the body format to JSON (application/json).
+   - In the request body, enter the following JSON:
+         ```
+         {
+            "email":"john@john.com",
+            "password":"john007"
+         }
+         ```
+   - Click the "Send" button to make the request.
+   - The response from the /api/login endpoint will include a JWT token. Copy this token from the response body.
 
-6. Access the API: The API will be available at `http://localhost:3000/api/customers`. You can use an HTTP client (e.g., cURL, Postman) to interact with the endpoints mentioned in the "Features" section.
+   **Include JWT Token:**
+    To access protected endpoints, include the JWT token in the Authorization header of your requests.
+    Here's an example using Postman:
+      - Create a new request in Postman for a protected endpoint (e.g., GET /api/customers).
+      - Set the HTTP method to the appropriate method (e.g., GET).
+      - Set the request URL to http://localhost:3000/api/customers.
+      - In the request headers, add a new header with the key Authorization and the value Bearer <your-jwt-token>.
+      - Replace <your-jwt-token> with the actual JWT token.
+      - Click the "Send" button to make the request. You should receive a response with the desired data from the protected endpoint.
 
 
 ## Database Setup
 
-To set up the PostgreSQL database for the Customer Database REST API, follow these steps:
+To set up the PostgreSQL database for the **customer** Database REST API, follow these steps:
 
-1. Install PostgreSQL: If you haven't already, download and install PostgreSQL from the official website (https://www.postgresql.org) based on your operating system.
+**customer** table:
+  1. Install PostgreSQL: If you haven't already, download and install PostgreSQL from the official website (https://www.postgresql.org) based on your operating system.
 
-2. Open a terminal or command prompt and connect to your PostgreSQL server using the appropriate credentials.
-Create a Postgre database called customer using the following SQL statement.
-  `CREATE DATABASE customer;`
-
-3. Connect to the customer database (`\c customer` command) and create a table called customers into the customer database using the following SQL statement.
-    ```
+  2. Open a terminal or command prompt and connect to your PostgreSQL server using the appropriate credentials.
+    Create a Postgre database called **customer** using the following SQL statement.
+    `CREATE DATABASE customer;`
+  3. Connect to the customer database (`\c customer` command) and create a table called **customers** into the customer database using the following SQL statement.
+      ```
       CREATE TABLE customers (
         id serial PRIMARY KEY,
         firstname VARCHAR (250) NOT NULL,
@@ -74,19 +103,35 @@ Create a Postgre database called customer using the following SQL statement.
         email VARCHAR (250) NOT NULL,
         phone VARCHAR (250) NOT NULL
       );
-    ```
-
-4. Populate the customers table using the SQL statement below.
-
-    ```
+      ```
+  4. Populate the customers table using the SQL statement below.
+      ```
       INSERT INTO customers (firstname, lastname, email, phone) VALUES ('John', 'Johnson', 'john@johnson.com', '8233243');
       INSERT INTO customers (firstname, lastname, email, phone) VALUES ('Mary', 'Smith', 'mary@smith.com', '6654113');
       INSERT INTO customers (firstname, lastname, email, phone) VALUES ('Peter', 'North', 'peter@north.com', '901176');
-    ```
+      ```
+  5. Check that customers are added to the customers table
+      `SELECT * FROM customers;`
 
-5. Check that customers are added to the customers table
-  `SELECT * FROM customers;`
-
+**user** table:
+  1. Connect to the customer database (`\c customer` command) and create a table called **users** into the customer database using the following SQL statement.
+      ```
+        CREATE TABLE users (
+          id SERIAL PRIMARY KEY,
+          email VARCHAR(255) NOT NULL UNIQUE,
+          password TEXT NOT NULL
+        );
+      ```
+  2. Create within the users table one user for testing purposes. Populate the users table using the SQL statement below.
+    **Note!** The password is hashed and plain text password is *john007*.
+      ```
+        INSERT INTO users
+          (email, password)
+        VALUES
+          ('john@john.com', '$2b$08$XX615l/tHyDneJ.A1CJZZu1CSo6RAEJyEReozQC.yoObjKcOCxkPe');
+      ```
+  3. Check that customers are added to the customers table
+      `SELECT * FROM users;`
 
 
 ## Manual testing
