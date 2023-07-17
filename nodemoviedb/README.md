@@ -88,6 +88,7 @@ REST API has the following endpoints and actions:
 
 ## Database Setup
 
+**movies** table:
 To set up the PostgreSQL database for the Movie Database REST API, follow these steps:
 
 1. Install PostgreSQL: If you haven't already, download and install PostgreSQL from the official website (https://www.postgresql.org) based on your operating system.
@@ -119,6 +120,25 @@ To set up the PostgreSQL database for the Movie Database REST API, follow these 
 
    `SELECT * FROM movies;`
 
+**users** table:
+  1. Connect to the customer database (`\c customer` command) and create a table called **users** into the customer database using the following SQL statement.
+      ```
+        CREATE TABLE users (
+          id SERIAL PRIMARY KEY,
+          email VARCHAR(255) NOT NULL UNIQUE,
+          password TEXT NOT NULL
+        );
+      ```
+  2. Create within the users table one user for testing purposes. Populate the users table using the SQL statement below.
+    **Note!** The password is hashed and plain text password is *john007*.
+      ```
+        INSERT INTO users
+          (email, password)
+        VALUES
+          ('john@john.com', '$2b$08$XX615l/tHyDneJ.A1CJZZu1CSo6RAEJyEReozQC.yoObjKcOCxkPe');
+      ```
+  3. Check that customers are added to the customers table
+      `SELECT * FROM users;`
 
 ## Testing
 To test the API endpoints, you can use tools like **cURL** or **Postman**. Here are some example requests:
