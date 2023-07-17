@@ -62,7 +62,7 @@ REST API has the following endpoints and actions:
 
    - Open Postman and create a new request.
    - Set the HTTP method to POST.
-   - Enter the following URL: http://localhost:3000/api/login.
+   - Enter the following URL: http://localhost:3000/login.
    - Select the "Body" tab.
    - Choose the "raw" option.
    - Set the body format to JSON (application/json).
