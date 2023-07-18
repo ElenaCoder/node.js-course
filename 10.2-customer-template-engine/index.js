@@ -1,6 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const port = 3000;
 
@@ -14,6 +18,16 @@ let customers = [
 
 app.get("/", (req, res) => {
     res.render("customerlist", {customers: customers});
+})
+
+app.get("/addcustomer", (req, res) => {
+    res.render("addcustomer");
+})
+
+app.post("/addcustomer", (req, res) => {
+    const newCustomer = {id: new Date().now, firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email, phone: req.body.phone};
+    customers = [...customers, newCustomer];
+    res.redirect("/");
 })
 
 app.listen(process.env.PORT || 3000, () => {
