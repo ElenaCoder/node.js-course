@@ -8,12 +8,16 @@ html
         h1 New customer
         form(action='/addcustomer', method='POST', class="container mt-4")
             div.form-group
+                label(for="firstname") First name
                 input.form-control.mb-3(type="text", name="firstname")
             div.form-group
+                label(for="lastname") Last name
                 input.form-control.mb-3(type="text", name="lastname")
             div.form-group
+                label(for="email") Email
                 input.form-control.mb-3(type="email", name="email")
             div.form-group
+                label(for="phone") Phone
                 input.form-control.mb-3(type="tel", name="phone")
             div.text-center
                 button.btn.btn-primary(type="submit") Add
