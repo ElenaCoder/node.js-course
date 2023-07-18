@@ -6,9 +6,23 @@ const port = 3000;
 
 app.set('view engine', 'pug');
 
+let movies = [
+  {id: '1588323375416', title: 'Star Wars: Episode IX - The Rise of Skywalker', year: 2019, director: 'J.J. Abrams'},
+  {id: '1588323390624', title: 'The Irishman', year: 2019, director: 'Martin Scorsese'},
+  {id: '1588323412643', title: 'Harry Potter and the Sorcerers Stone', year: 2001, director: 'Chris Columbus'}
+];
+
 app.get("/hello", (req, res) => {
     res.render("hello", {name: 'Lena'});
-  })
+})
+
+app.get("/", (req, res) => {
+    res.render("movielist", {movies: movies});
+})
+
+app.get("/addmovie", (req, res) => {
+  res.render("addmovie");
+})
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Server is running on port ${port}.`);
