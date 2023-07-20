@@ -61,53 +61,56 @@ To test the API endpoints, you can use tools like **cURL** or **Postman** (a pop
 
 1. Fetch all cars:
     - Set the request method to GET.
-    - Enter the request URL: http://localhost:3000/cars.
+    - Enter the request URL: `http://localhost:3000/cars` or `https://elenacoder-7-2-car-rest-api-mongodb.onrender.com/cars`.
     - Click the "Send" button to send the GET request.
     - Review the response to see the list of cars returned.
 
 - Add new car:
     - Set the request method to POST.
-    - Enter the request URL: http://localhost:3000/cars.
+    - Enter the request URL: `http://localhost:3000/cars` or `https://elenacoder-7-2-car-rest-api-mongodb.onrender.com/cars`.
     - Set the request body to JSON format and provide the car details. For example:
-    ```
-    {
-        "brand": "Toyota",
-        "model": "Camry",
-        "color": "Silver",
-        "year": "2022"
-    }
-    ```
+        ```
+        {
+            "brand": "Toyota",
+            "model": "Camry",
+            "color": "Silver",
+            "year": "2022"
+        }
+        ```
     - Click the "Send" button to send the POST request.
     - Check the response to see if the car was successfully added.
 
 
 - Delete car by brand:
     - Set the request method to DELETE.
-    - Enter the request URL: http://localhost:3000/cars.
+    - Enter the request URL: `http://localhost:3000/cars` or `https://elenacoder-7-2-car-rest-api-mongodb.onrender.com/cars`.
     - Set the request body to JSON format and provide the title of the car you want to delete. For example:
-    ```
-    {
-        "brand": "Toyota"
-    }
-    ````
+        ```
+        {
+            "brand": "Toyota"
+        }
+        ````
     - Click the "Send" button to send the DELETE request.
     - Inspect the response to verify if the car with the specified title was deleted.
 
 - Update/edit car by ID:
     - Set the request method to PUT.
-    - Enter the request URL: http://localhost:3000/cars/{car_ID} (replace {car_ID} with the actual ID of the car you want to update).
+    - Enter the request URL: `http://localhost:3000/cars/{car_ID}` or `https://elenacoder-7-2-car-rest-api-mongodb.onrender.com/cars/{car_ID}`(replace {car_ID} with the actual ID of the car you want to update).
     - Set the request body to JSON format and provide the updated car details. For example:
-    ```
-    {
-        "brand": "Toyota2",
-        "model": "Camry2",
-        "color": "Silver2",
-        "year": "2022"
-    }
-    ```
+        ```
+        {
+            "brand": "Toyota2",
+            "model": "Camry2",
+            "color": "Silver2",
+            "year": "2022"
+        }
+        ```
     - Click the "Send" button to send the PUT request.
     - Verify the response to see if the car details were successfully updated.
 
+## Screenshots
+
+Here you can find the screenshot of API usage in Postman [here](./assets/API%20screeshot%20Postman.jpg).
 
 
 ## License
