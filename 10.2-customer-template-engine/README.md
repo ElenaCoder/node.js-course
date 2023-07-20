@@ -41,6 +41,11 @@
 - `helmet`: Security middleware for securing HTTP headers.
 - `pug`: Template engine for generating dynamic HTML views.
 
+## Deployment
+
+**The 10.2-customer-template-engine** web application is deployed and accessible online. 🚀
+You can check it out at [this link:](https://elenacoder-10-2-customer-pug-template.onrender.com/)
+
 ## License
 
 This project is licensed under the MIT License.
