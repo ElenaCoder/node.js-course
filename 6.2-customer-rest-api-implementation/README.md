@@ -91,9 +91,9 @@ REST API has following endpoints and actions:
       - Replace <your-jwt-token> with the actual JWT token.
       - Click the "Send" button to make the request. You should receive a response with the desired data from the protected endpoint.
 
-  **Screenshot of including JWT Token to /api/customers request:**
+   **Screenshot of including JWT Token to /api/customers request:**
 
-      - [request header](./assets/6.2-including-jwt-token-to%20api-customer-request_1.jpg)
+      - [request header](./assets/6.2-including-jwt-token-to-api-customer-request_1.jpg)
 
 
 ## Database Setup
