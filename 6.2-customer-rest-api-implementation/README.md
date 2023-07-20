@@ -62,7 +62,7 @@ REST API has following endpoints and actions:
    - Enter the following URL: http://localhost:3000/login.
    - Select the "Body" tab.
    - Choose the "raw" option.
-   - Set the body format to JSON (application/json).
+   - Set the body format to JSON (application/json). Specify the Content-Type header as application/json.
    - In the request body, enter the following JSON:
          ```
          {
@@ -71,7 +71,11 @@ REST API has following endpoints and actions:
          }
          ```
    - Click the "Send" button to make the request.
-   - The response from the /api/login endpoint will include a JWT token. Copy this token from the response body.
+   - The response from the /login endpoint will include a JWT token. Copy this token from the response body.
+   **Screenshots of obtaining JWT Token:**
+    - [request header](./assets/6.2-obtaining-jwt-token_1.jpg)
+    - [request body](./assets/6.2-obtaining-jwt-token_2.jpg)
+
 
    **Include JWT Token:**
     To access protected endpoints, include the JWT token in the Authorization header of your requests.
@@ -82,6 +86,8 @@ REST API has following endpoints and actions:
       - In the request headers, add a new header with the key Authorization and the value Bearer <your-jwt-token>.
       - Replace <your-jwt-token> with the actual JWT token.
       - Click the "Send" button to make the request. You should receive a response with the desired data from the protected endpoint.
+  **Screenshot of including JWT Token to /api/customers request:**
+    - [request header](./assets/6.2-including-jwt-token-to%20api-customer-request_1.jpg)
 
 
 ## Database Setup
