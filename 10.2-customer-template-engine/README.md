@@ -3,7 +3,7 @@
 
 # About
 
-**10.2-customer-template-engine** is a web application built with Node.js, Express, Pug, and Bootstrap. It allows users to manage a collection of movies.
+**10.2-customer-template-engine** is a full-stack web application built with Node.js, Express, Pug, and Bootstrap. It allows users to manage a collection of movies.
 
 ## Prerequisites
 
@@ -45,6 +45,10 @@
 
 **The 10.2-customer-template-engine** web application is deployed and accessible online. 🚀
 You can check it out at [this link:](https://elenacoder-10-2-customer-pug-template.onrender.com/)
+
+## Screenshots
+
+You can find the screenshot of UI of web applicaion [here](./assets/screenshot_10.2.jpg).
 
 ## License
 
