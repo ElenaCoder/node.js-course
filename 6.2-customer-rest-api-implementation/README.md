@@ -55,7 +55,9 @@ REST API has following endpoints and actions:
   `npm start`
 
 6. Authentication: To access protected endpoints, include a valid JWT token in the Authorization header of your requests. You can obtain a token by making a POST request to the `/api/login` endpoint with valid user credentials. The response will include a token that can be used for subsequent authenticated requests.
+
    **Obtaining the JWT Token:**
+
    To obtain a JWT token, we will use Postman. Follow these steps:
    - Open Postman and create a new request.
    - Set the HTTP method to POST.
@@ -72,9 +74,11 @@ REST API has following endpoints and actions:
          ```
    - Click the "Send" button to make the request.
    - The response from the /login endpoint will include a JWT token. Copy this token from the response body.
+
    **Screenshots of obtaining JWT Token:**
-    - [request header](./assets/6.2-obtaining-jwt-token_1.jpg)
-    - [request body](./assets/6.2-obtaining-jwt-token_2.jpg)
+
+      - [request header](./assets/6.2-obtaining-jwt-token_1.jpg)
+      - [request body](./assets/6.2-obtaining-jwt-token_2.jpg)
 
 
    **Include JWT Token:**
@@ -86,8 +90,10 @@ REST API has following endpoints and actions:
       - In the request headers, add a new header with the key Authorization and the value Bearer <your-jwt-token>.
       - Replace <your-jwt-token> with the actual JWT token.
       - Click the "Send" button to make the request. You should receive a response with the desired data from the protected endpoint.
+
   **Screenshot of including JWT Token to /api/customers request:**
-    - [request header](./assets/6.2-including-jwt-token-to%20api-customer-request_1.jpg)
+
+      - [request header](./assets/6.2-including-jwt-token-to%20api-customer-request_1.jpg)
 
 
 ## Database Setup
