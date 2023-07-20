@@ -38,6 +38,11 @@ NodePug is a web application built with Node.js, Express, Pug, and Bootstrap. It
 - `index.js`: The entry point of the application.
 - `views/`: Contains the Pug templates for rendering the HTML pages.
 
+## Deployment
+
+**The NodePug** web application is deployed and accessible online. 🚀
+You can check it out at [this link:](https://elena-coder-nodepug.onrender.com/)
+
 ## Dependencies
 
 - `express`: Web framework for Node.js.
