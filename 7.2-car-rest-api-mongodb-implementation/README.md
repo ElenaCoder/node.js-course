@@ -51,6 +51,10 @@ REST API has the following endpoints and actions:
 
 5. Access the API: The API will be available at `http://localhost:3000/cars`. You can use an HTTP client (e.g., cURL, Postman) to interact with the endpoints mentioned in the "Features" section.
 
+## Deployment
+
+This project has been deployed on RENDER service, and it is available at the following URL: [Car REST API on RENDER](https://elenacoder-7-2-car-rest-api-mongodb.onrender.com/cars)
+You can use this deployed version of the API to interact with the car database and perform CRUD operations mentioned in the "Features" section on car documents.
 
 ## Testing
 To test the API endpoints, you can use tools like **cURL** or **Postman** (a popular API development and testing tool) to interact with the endpoints mentioned in the "Features" section. Here are some sample requests you can make to the API using Postman:
