@@ -110,7 +110,8 @@ To test the API endpoints, you can use tools like **cURL** or **Postman** (a pop
 
 ## Screenshots
 
-Here you can find the screenshot of API usage in Postman [here](./assets/API%20screeshot%20Postman.jpg).
+Here you can find the screenshot of API usage in Postman here:
+ ![here](./assets/API%20screeshot%20Postman.jpg).
 
 
 ## License
