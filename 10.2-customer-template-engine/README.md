@@ -48,7 +48,8 @@ You can check it out at [this link:](https://elenacoder-10-2-customer-pug-templa
 
 ## Screenshots
 
-You can find the screenshot of UI of web applicaion [here](./assets/screenshot_10.2.jpg).
+You can find the screenshot of UI of web applicaion here:
+ ![here](./assets/screenshot_10.2.jpg).
 
 ## License
 
