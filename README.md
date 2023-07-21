@@ -153,6 +153,7 @@ This section provides a comprehensive guide on preparing and deploying your Node
 It covers the following topics:
 1. **Preparing your Node.js application for deployment:** Understand the necessary steps to prepare your Node.js application for deployment.
 2. **Deploying a Node.js application to the Heroku cloud:** Explore the deployment process using the Heroku cloud platform. Follow step-by-step instructions to set up a Heroku account, configure your application for deployment, and deploy your Node.js application to the cloud.
+**Note**: The HEROKU service, which were suggested for deployment in this chapter, is no longer available for free. I used for deployment purpose [Render](https://render.com/) service.
 3. **What is Helmet and how to use it:** Discover Helmet, a security middleware for Node.js applications. Learn about the importance of securing your web applications and how Helmet protects against common web vulnerabilities.
 
 **Projects**:
