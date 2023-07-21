@@ -77,8 +77,8 @@ REST API has following endpoints and actions:
 
    **Screenshots of obtaining JWT Token:**
 
-      - [request header](./assets/6.2-obtaining-jwt-token_1.jpg)
-      - [request body](./assets/6.2-obtaining-jwt-token_2.jpg)
+      - ![request header](./assets/6.2-obtaining-jwt-token_1.jpg)
+      - ![request body](./assets/6.2-obtaining-jwt-token_2.jpg)
 
 
    **Include JWT Token:**
@@ -93,7 +93,7 @@ REST API has following endpoints and actions:
 
    **Screenshot of including JWT Token to /api/customers request:**
 
-      - [request header](./assets/6.2-including-jwt-token-to-api-customer-request_1.jpg)
+      - ![request header](./assets/6.2-including-jwt-token-to-api-customer-request_1.jpg)
 
 
 ## Database Setup
